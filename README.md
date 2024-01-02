@@ -34,6 +34,7 @@ Some of the useful and most common commands that I learnt include:
 
 ## File System: EFS vs. EBS
 <details>
+  
 The next choice was between EFS and EBS, so I asked myself: Why not both? Working with these file systems taught me about the process of mounting and unmounting them to an instance and automating the process via the **/etc/fstab** configuration.
 
 EBS is straightforward in that regard and only requires editing the inbound rules in the corresponding security groups, but EFS also needs a mounting point that can be found by going to the EFS menu in AWS Console, choosing the newly created file system, selecting View Details, and then Attach.
