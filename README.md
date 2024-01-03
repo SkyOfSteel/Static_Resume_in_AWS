@@ -5,7 +5,7 @@ This is a blog-style repository to describe what I've learnt while doing the [Cl
 
 While the authors of the challenge recommended choosing S3 - which makes a lot of sense for static web-pages - I decided to go for EC2 for a couple of reasons. First, I wanted to get some first-hand experience with setting up an Apache server, and second, it was my first real hands-on experience working with Linux, and I was excited to give it a try.
 
-Amazon offers several of their specialized Amazon Linux AMIs, but I opted for Ubuntu as a popular and well-documented OS. It turned out to be the right decision, as every problem I encountered during my work were already covered in helpful threads on Stack Overflow and reddit. It was also a great way to learn more about how SSH connections work - either directly or via a bastion host for instances in private subnets.
+Amazon offers several of their specialized Amazon Linux AMIs, but I opted for Ubuntu as a popular and well-documented OS. It turned out to be the right decision, as every problem I encountered during my work was already covered in helpful threads on Stack Overflow and reddit. It was also a great way to learn more about how SSH connections work - either directly or via a bastion host for instances in private subnets.
 
 Some of the useful and most common commands that I learnt include:
 
@@ -35,7 +35,7 @@ Some of the useful and most common commands that I learnt include:
 ## File System: EFS vs. EBS
 <details>
   
-The next choice was between EFS and EBS, so I asked myself: Why not both? Working with these file systems taught me about the process of mounting and unmounting them to an instance and automating the process via the **/etc/fstab** configuration.
+The next choice was between EFS and EBS, so I asked myself: Why not both? Working with these file systems taught me about mounting and unmounting them to an instance and automating the process via the **/etc/fstab** configuration.
 
 EBS is straightforward in that regard and only requires editing the inbound rules in the corresponding security groups, but EFS also needs a mounting point that can be found by going to the EFS menu in AWS Console, choosing the newly created file system, selecting View Details, and then Attach.
 
