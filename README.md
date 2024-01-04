@@ -30,6 +30,8 @@ Some of the useful and most common commands that I learnt include:
 **echo "text" > path/file.txt** - writes the contents of "text" to the specified file. Can also be used in the user data section when spinning up a new instance, e.g., to write something to index.html on start-up.
 
 **cat path/file.txt** - shows (concatenates) the standard output of a file. Easier and faster than viewing a document in vim every time.
+
+**sudo ncdu -x /path/** - uses NCDU disk utility to provide a convenient text-based UI to quickly navigate through directories and check their size. **/path/** denotes the partition, can be replaced with **/** for the root file system. **-x** performs a full scan.
 </details>
 
 ## File System: EFS vs. EBS
@@ -46,4 +48,37 @@ Some of the useful and most common commands that I learnt include:
 **sudo mount [options] File_System_Name:/ /path** - mounts the file system at the designated path. Helpful options: **-f** to test the mounting process in a dry run, **-a** to mount all the file systems in fstab, **-v** for a verbose description of what's being done.
 
 One especially important detail was learning the difference between **efs** and **nfs4** options in the manual mounting process. Amazon provides EFS mount helper to simplify the automatic mounting process, but without the set of **amazon-efs-utils** tools, this option has to be changed to **nfs4** in the **sudo mount** command to avoid errors.
+</details>
+
+## Content: HTML and CSS
+<details>
+
+After setting up the server, it was the time to figure out how to write the web content. Learning the difference and use cases behind HTML and CSS allowed me to differentiate between the structure and style of my web page and understand the reasons behind the best practices associated with them.
+
+I figured out how to create multiple pages in **/var/www/** sub-directories and connect them with `<a href="filename.html"></a>` commands. I made sure to avoid any individual style edits in my HTML files for this project and do all the formatting via the CSS, although the option to correct particular elements with the inline `style` attributes within elements or with the `<style></style>` element within the `<head>` section is also helpful in a pinch and overrides whatever is written in the attached CSS.
+
+A quick example:
+
+`<li style="color:green;">List Item</li>` - produces a green list item.
+
+While this fragment defines an internal CSS for an entire page: 
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+```
 </details>
