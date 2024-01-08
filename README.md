@@ -1,6 +1,8 @@
 # Static Resume in AWS
 This is a blog-style repository to describe what I've learnt while doing the [Cloud Resume challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/) in AWS.
 
+The diagram of AWS services used in creation of the webpage:
+
 ![Illustration](/Pics/Static%20Resume.drawio.png "The diagram showcasing the AWS services used in this practical exercise.")
 
 > [!IMPORTANT]
