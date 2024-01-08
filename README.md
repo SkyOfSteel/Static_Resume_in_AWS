@@ -5,6 +5,7 @@ This is a blog-style repository to describe what I've learnt while doing the [Cl
 
 > [!IMPORTANT]
 > In case of any errors caused by the failed authorization, the following command can be used in the CLI to decode the failure message:
+> 
 > `aws sts decode-authorization-message --encoded-message <encoded message from the error>`
 ## Host: EC2 vs. S3
 <details>
