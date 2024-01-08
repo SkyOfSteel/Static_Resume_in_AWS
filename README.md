@@ -1,6 +1,8 @@
 # Static Resume in AWS
 This is a blog-style repository to describe what I've learnt while doing the [Cloud Resume challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/) in AWS.
 
+![Illustration](/Pics/Static%20Resume.drawio.png "The diagram showcasing the AWS services used in this practical exercise.")
+
 > [!IMPORTANT]
 > In case of any errors caused by the failed authorization, the following command can be used in the CLI to decode the failure message:
 > `aws sts decode-authorization-message --encoded-message <encoded message from the error>`
