@@ -91,3 +91,20 @@ p    {color: red;}
 </html>
 ```
 </details>
+
+## Content: IPv4 vs. IPv6
+<details>
+  
+Ever since AWS started to charge $0.005/h per IPv4 in February, I considered switching to IPv6 as a matter of experiment. 
+
+Such services as an Application Load Balancer require a minimum of two subnets with their own public IPs, and another Elastic IPv4 is needed for my EC2 to make sure it remains in place after stopping and starting the instance. 
+
+I ended up preserving the IPv4 architecture, because the Load Balancer does not support IPv6-only setup - the only option is dual-stack, which does not help my situation. And while load balancing is not strictly needed for a small project like that, I wanted to keep it to showcase the operation on a small scale.
+
+Still, it was a helpful experience figuring out how to switch an EC2 instance from IPv4 to IPv6, and I am leaving a short instruction about it here for the future reference:
+
+1. Navigate to the VPC in which your EC2 instance is situated.
+2. Click the **VPC ID**, then **Actions** -> **Edit CIDR**.
+   ![Illustration](/Pics/firefox_dn03KSoPBb.gif "A small GIF demo.")
+3. 
+</details>
