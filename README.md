@@ -92,7 +92,7 @@ p    {color: red;}
 ```
 </details>
 
-## Content: IPv4 vs. IPv6
+## Address: IPv4 vs. IPv6
 <details>
   
 Ever since AWS started to charge $0.005/h per IPv4 in February, I considered switching to IPv6 as a matter of experiment. 
@@ -101,10 +101,21 @@ Such services as an Application Load Balancer require a minimum of two subnets w
 
 I ended up preserving the IPv4 architecture, because the Load Balancer does not support IPv6-only setup - the only option is dual-stack, which does not help my situation. And while load balancing is not strictly needed for a small project like that, I wanted to keep it to showcase the operation on a small scale.
 
-Still, it was a helpful experience figuring out how to switch an EC2 instance from IPv4 to IPv6, and I am leaving a short instruction about it here for the future reference:
+Still, it was a helpful experience figuring out how to switch an EC2 instance from IPv4 to IPv6, and I am leaving a short instruction about it here for the future reference. The process involves adding a CIDR block in three key areas: first the VPC where EC2 is located, then the VPC's subnet, then the subnet's network interface.
 
-1. Navigate to the VPC in which your EC2 instance is situated.
-2. Click the **VPC ID**, then **Actions** -> **Edit CIDR**.
+1. Navigate to the VPC in which your EC2 instance is located.
+2. Click the **VPC ID**, then **Actions**, then **Edit CIDR**.
    ![Illustration](/Pics/firefox_dn03KSoPBb.gif "A small GIF demo.")
-3. 
+3. Click **Add new IPv6 CIDR** and select **Amazon-provided IPv6 CIDR block**.
+4. In the VPC menu, choose the main route table on the **Resource Map** tab in the lower half of the screen.
+5. In the route table menu, click **Edit routes**, then **Add route** and add **::/0** as the **Destination** and **Internet Gateway** as the **Target**.
+6. Navigate to the subnet in which your EC2 instance is located.
+7. Click the **Subnet ID**, then **Actions**, then **Edit IPv6 CIDRs**.
+8. Click **Add IPv6 CIDR**, then **Save**.
+9. On the **Networking** tab of the EC2 instance, navigate to the network interface, then click **Actions**, then click **Manage IP addresses**.
+10. Expand the IP addresses section and click **Assign new IP address** in the **IPv6 addresses** area. **Note:** AWS does not support elastic IPv6, but it is possible to manually assign a static IPv6 you the instance in this menu.
+11. Navigate to the EC2 Security Group and add the necessary inbound rules for the SSH connection, HTTP and HTTPS traffic, an OpenVPN port over the UDP protocol, etc.
+
+  
+To remove the IPv6 association, the process must be followed in reverse: First, remove the IPv6 address assigned to the network interface, then remove the CIDR block from the subnet, then remove the CIDR block from the VPC. Remember to remove any added rules from the security groups afterwards.
 </details>
