@@ -3,7 +3,7 @@ This is a blog-style repository to describe what I've learnt while doing the [Cl
 
 The diagram of AWS services used in creation of the webpage:
 
-![Illustration](/Pics/Static%20Resume.drawio.png "The diagram showcasing the AWS services used in this practical exercise.")
+![Illustration](/Pics/Static%20Resume.png "The diagram showcasing the AWS services used in this practical exercise.")
 
 > [!IMPORTANT]
 > In case of any errors caused by the failed authorization, the following command can be used in the CLI to decode the failure message:
